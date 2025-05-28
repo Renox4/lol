@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bouton animé</title>
+  <style>
+    .container {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .red-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <button class="red-button" onclick="handleClick()">Bonjour !</button>
+  <audio id="click-sound" src="applepay.mp3"></audio>
+</div>
+  <button onclick="resetSize()">Réinitialiser</button>
+
+
+<script>
+  let scale = 1;
+
+  function handleClick() {
+    scale += 0.1;
+    const button = document.querySelector('.red-button');
+    button.style.transform = `scale(${scale})`;
+
+    const audio = document.getElementById('click-sound');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  function resetSize() {
+   scale = 1;
+   const button = document.querySelector('.red-button');
+   button.style.transform = `scale(${scale})`;
+  }
+
+</script>
+
+</body>
+</html>
+
